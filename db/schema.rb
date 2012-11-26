@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20121126204348) do
 
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "photo"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "trades", :force => true do |t|
     t.integer  "item_id"
     t.integer  "seller_id"
