@@ -10,10 +10,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params[:name])
+		@user = User.new(params[:name])
+
 	end
 
 	def show
+		user = params[:id]
+		@user = User.find(id)
 	end
 
 	def update
