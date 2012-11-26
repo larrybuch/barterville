@@ -1,5 +1,5 @@
 class AddUsersTable < ActiveRecord::Migration
-  def create
+  def change
   	create_table :users do |t|
   		t.string :name
   		t.string :photo
