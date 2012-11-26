@@ -9,8 +9,22 @@ class UsersController < ApplicationController
 	def edit
 	end
 
-	def create
-		@user = User.new(params[:name])
+	def create		
+		@user = User.new(params[:user])
+		@user.name = @user.name.downcase
+
+		@user.save
+
+		name = params[:user][:name]
+		session[:name] = name
+		session[:id] = @user[:id]
+
+		if @user.save
+			redirect_to edit_user_path(@user)
+
+		else
+			render :new
+		end
 
 	end
 
