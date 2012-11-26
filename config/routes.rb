@@ -7,6 +7,10 @@ Barterville::Application.routes.draw do
   resources :items
   resources :trades
 
+  match '/login' => 'session#new', :via => :get
+  match '/login' => 'session#create', :via => :post
+  match '/logout' => 'session#destroy', :via => :get
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
