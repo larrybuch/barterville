@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   def create
     # raise params.inspect
     @item = Item.new(params[:item])
+    @item[:user_id] = @authenticated_user.id
     @item.save
 
     if @item.save
