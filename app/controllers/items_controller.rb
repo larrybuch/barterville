@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @item = Item.all
+    @item = Item.where(params[:user_id] != @authenticated_user.id)
   end
 
   def new
