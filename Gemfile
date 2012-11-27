@@ -12,6 +12,8 @@ gem 'rails-footnotes'
 gem 'ipsum'
 gem 'bcrypt-ruby'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'fog'
 
 
 # Gems used only for assets and not required

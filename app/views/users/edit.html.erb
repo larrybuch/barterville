@@ -1,4 +1,6 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %> 
 	<%= f.file_field :photo %>
-  <%= f.submit %>
+	<%= f.hidden_field :photo_cache %>
+    <%= image_tag(@user.photo) if @user.photo? %>
+  	<%= f.submit %>
 <% end %>
