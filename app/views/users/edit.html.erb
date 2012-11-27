@@ -1,3 +1,4 @@
+<%= render 'form' %>
 <%= form_for @user, :html => {:multipart => true} do |f| %> 
 	<%= f.file_field :photo %>
 	<%= f.hidden_field :photo_cache %>

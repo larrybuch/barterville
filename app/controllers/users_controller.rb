@@ -31,7 +31,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		raise params.inspect
 		user_id = params[:id]
 		@user = User.find(user_id)
 	end
