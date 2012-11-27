@@ -1,9 +1,9 @@
 module ApplicationHelper
   def login_or_logout
     if @authenticated_user
-      link_to "log out #{@authenticated_user.name}", logout_path
+      link_to "Log Out, #{@authenticated_user.name.capitalize}", logout_path
     else
-      link_to 'log in', login_path
+      link_to 'Log In', login_path
     end
   end
 end
