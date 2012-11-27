@@ -14,6 +14,7 @@ gem 'bcrypt-ruby'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required
