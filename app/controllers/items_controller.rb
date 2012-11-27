@@ -21,11 +21,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    item_id = params[:id]
+    @item = Item.find(item_id)
   end
-
-  def destroy
-  end
-
+   
   def show
     item_id = params[:id]
     @item = Item.find(item_id)
@@ -33,6 +32,12 @@ class ItemsController < ApplicationController
 
   def update
 
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.delete
+    redirect_to items_path
   end
 
 end
