@@ -9,12 +9,12 @@ class TradesController < ApplicationController
 	end
 
 	def create
-		@trade = Trade.new(params[:item])
-		if @trade.save
-			redirect_to users_path
-		else
-			render 
-		end
+		# @trade = Trade.new(params[:item])
+		# if @trade.save
+		# 	redirect_to users_path
+		# else
+		# 	render 
+		# end
 	end
 
 	def show

@@ -3,9 +3,19 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def create
+    # raise params.inspect
+    @item = Item.new(params[:item])
+    @item.save
+
+    if @item.save
+      redirect_to item_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -18,6 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+
   end
 
 end
