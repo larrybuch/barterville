@@ -7,11 +7,7 @@ module ApplicationHelper
     end
   end
 
-  def your_profile
-    if @authenticated_user
-      link_to "Your Profile", user_path
-    else
-    end
-  end
+ 
+ 
 end
 

@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @item.save
 
     if @item.save
-      redirect_to 
+      redirect_to items_path
     else
       render :new
     end
