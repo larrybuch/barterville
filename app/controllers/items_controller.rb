@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @item = Item.all
-    @a = @authenticated_user.id.to_s
-    @item = Item.where('user_id !=' + @a)
+    @item = Item.where('user_id != ?', @authenticated_user.id)
   end
 
   def new
@@ -16,7 +14,7 @@ class ItemsController < ApplicationController
     @item.save
 
     if @item.save
-      redirect_to item_path
+      redirect_to 
     else
       render :new
     end
