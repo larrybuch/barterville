@@ -1,0 +1,31 @@
+<%= form_for @trade do |t| %>
+	<div class="row">
+		<div id="seller" class="span4">
+			<p>ALL ITEMS</p>
+			<ul>
+				<% @seller_item.each do |i| %>
+
+					<li><%= i.name %></li>
+					<li><%= i.description %></li>
+					<li><%= image_tag i.photo.thumb %></li>
+					<li><%= check_box "Trade for this item", root_path %></li>
+					
+				<% end %>
+			<ul>
+		</div>
+		<div id="buyer" class="span4">
+			<p>YOUR ITEMS</p>
+			<ul>
+				<% @buyer_item.each do |i| %>
+
+					<li><%= i.name %></li>
+					<li><%= i.description %></li>
+					<li><%= image_tag i.photo.thumb %></li>
+					<li><%= check_box "Trade for this item", root_path %></li>
+					
+				<% end %>
+			<ul>
+		</div>
+		<div class="span2"><%= t.submit %></div>
+	</div>
+<% end %>

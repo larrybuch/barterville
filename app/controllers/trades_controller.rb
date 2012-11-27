@@ -1,5 +1,8 @@
 class TradesController < ApplicationController
 	def index
+		@seller_item = Item.where('user_id != ?', @authenticated_user.id)
+		@buyer_item = Item.where('user_id = ?', @authenticated_user.id )
+		@trade = Trade.new
 	end
 
 	def new
