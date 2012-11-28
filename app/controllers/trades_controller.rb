@@ -14,9 +14,10 @@ class TradesController < ApplicationController
 	def create
 		@trade = Trade.new(params[:item])
 		if @trade.save
+			TradeMessage.pendingtrade(@authenticated_user.name).deliver
 			redirect_to users_path
 		else
-			render 
+			render trades_path
 		end
 	end
 

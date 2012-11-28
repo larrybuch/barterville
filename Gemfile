@@ -15,6 +15,7 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'fog'
 gem 'rmagick'
+gem 'aws-ses'
 
 
 # Gems used only for assets and not required
