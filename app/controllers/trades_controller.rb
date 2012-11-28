@@ -25,8 +25,11 @@ class TradesController < ApplicationController
 	end
 
 	def show
-		@trade = Trade.all 
-		
+		#@trade = Trade.all 
+		if params[:buyer_id] == @authenticated_user.id
+			@trade = Trade.find( :buyer_id == @authenticated_user.id )
+		end
+
 	end
 
 	def update
