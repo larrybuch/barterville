@@ -8,7 +8,9 @@
 					<li><%= i.name %></li>
 					<li><%= i.description %></li>
 					<li><%= image_tag i.photo.thumb %></li>
-					<li><%= check_box "Trade for this item", root_path %></li>
+					<li>
+						<input type="checkbox" name="bought_item_id" value="<%= i.id %>">
+					</li>
 					
 				<% end %>
 			<ul>
@@ -21,7 +23,7 @@
 					<li><%= i.name %></li>
 					<li><%= i.description %></li>
 					<li><%= image_tag i.photo.thumb %></li>
-					<li><%= check_box "Trade for this item", root_path %></li>
+					<li><input type="checkbox" name="sold_item_id" value="<%= i.id %>"></li>
 					
 				<% end %>
 			<ul>
