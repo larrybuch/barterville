@@ -8,7 +8,7 @@
 					<%= image_tag i.photo.thumb %>
 					<h2><%= i.name %></h2>
 					<p><%= i.description %></p>
-					<input type="checkbox" name="bought_item_id" value="<%= i.id %>">
+					<input type="checkbox" name="seller_item_id" value="<%= i.id %>">
 				</div>
 				<% end %>
 
@@ -21,7 +21,7 @@
 						<%= image_tag i.photo.thumb %>
 						<h2><%= i.name %></h2>
 						<p><%= i.description %></p>
-						<input type="checkbox" name="sold_item_id" value="<%= i.id %>">
+						<input type="checkbox" name="buyer_item_id" value="<%= i.id %>">
 					</div>
 				<% end %>
 

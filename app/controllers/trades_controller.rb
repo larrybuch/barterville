@@ -12,6 +12,7 @@ class TradesController < ApplicationController
 	end
 
 	def create
+		raise params.inspect
 		@trade = Trade.new(params[:item])
 		if @trade.save
 			TradeMessage.pendingtrade(@authenticated_user.name).deliver
@@ -19,9 +20,11 @@ class TradesController < ApplicationController
 		else
 			render trades_path
 		end
+		# binding.pry
 	end
 
 	def show
+
 	end
 
 	def update
