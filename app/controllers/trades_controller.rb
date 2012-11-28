@@ -12,19 +12,21 @@ class TradesController < ApplicationController
 	end
 
 	def create
-		raise params.inspect
-		@trade = Trade.new(params[:item])
+
+		@trade = Trade.new(:seller_id => params[:seller_id], :buyer_id => params[:buyer_id], :buyer_item_id => params[:buyer_item_id], :seller_item_id => params[:seller_item_id])
+		
 		if @trade.save
 			TradeMessage.pendingtrade(@authenticated_user.name).deliver
-			redirect_to users_path
+			render :show
 		else
 			render trades_path
 		end
-		# binding.pry
+
 	end
 
 	def show
-
+		@trade = Trade.all 
+		
 	end
 
 	def update

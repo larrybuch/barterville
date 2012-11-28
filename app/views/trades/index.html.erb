@@ -9,6 +9,8 @@
 					<h2><%= i.name %></h2>
 					<p><%= i.description %></p>
 					<input type="checkbox" name="seller_item_id" value="<%= i.id %>">
+					<p><%= i.user_id %></p>
+					<%= hidden_field_tag 'seller_id', i.user_id  %>
 				</div>
 				<% end %>
 
@@ -22,6 +24,8 @@
 						<h2><%= i.name %></h2>
 						<p><%= i.description %></p>
 						<input type="checkbox" name="buyer_item_id" value="<%= i.id %>">
+						<p><%= i.user_id %></p>
+						<%= hidden_field_tag 'buyer_id', i.user_id  %>
 					</div>
 				<% end %>
 
