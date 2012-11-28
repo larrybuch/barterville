@@ -14,6 +14,10 @@ class Trade < ActiveRecord::Base
 	belongs_to :seller, :class_name => 'User', :foreign_key => 'seller_id'
 	belongs_to :buyer, :class_name => 'User', :foreign_key => 'buyer_id'
 
+  belongs_to :seller_item, :class_name => 'Item', :foreign_key => 'seller_item_id'
+  belongs_to :buyer_item, :class_name => 'Item', :foreign_key => 'buyer_item_id'
+
+
 end
 
 

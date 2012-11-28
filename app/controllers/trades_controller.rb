@@ -17,7 +17,8 @@ class TradesController < ApplicationController
 		
 		if @trade.save
 			TradeMessage.pendingtrade(@authenticated_user.name).deliver
-			render :show
+			
+			redirect_to trade_path(@trade)
 		else
 			render trades_path
 		end
@@ -25,9 +26,17 @@ class TradesController < ApplicationController
 	end
 
 	def show
+		trade = Trade.find( params[:id] )
+		@buyer_id = trade.buyer_id
+		@seller_id = trade.seller_id
+
 		#@trade = Trade.all 
-		if params[:buyer_id] == @authenticated_user.id
-			@trade = Trade.find( :buyer_id == @authenticated_user.id )
+		if @buyer_id == @authenticated_user.id
+			@your_trades = Trade.where( :buyer_id => @authenticated_user.id )
+		end
+
+		if @seller_id != @authenticated_user.id
+			@proposed_trades = Trade.where( :seller_id => @authenticated_user.id )
 		end
 
 	end

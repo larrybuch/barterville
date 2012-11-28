@@ -14,5 +14,8 @@
 class Item < ActiveRecord::Base
 	belongs_to :user
 
+  has_many :seller_item, :class_name => 'Trade', :foreign_key => 'seller_item_id'
+  has_many :buyer_item, :class_name => 'Trade', :foreign_key => 'buyer_item_id'
+
 	mount_uploader :photo, ProfilePicUploader
 end
