@@ -26,20 +26,13 @@ class TradesController < ApplicationController
 	end
 
 	def show
-		trade = Trade.find( params[:id] )
-		@buyer_id = trade.buyer_id
-		@seller_id = trade.seller_id
 
-		#@trade = Trade.all 
-		if @buyer_id == @authenticated_user.id
-			@your_trades = Trade.where( :buyer_id => @authenticated_user.id )
-		end
-
-		if @seller_id != @authenticated_user.id
-			@proposed_trades = Trade.where( :seller_id => @authenticated_user.id )
-		end
+		@your_trades = Trade.where( :buyer_id => @authenticated_user.id )
+		@proposed_trades = Trade.where( :seller_id => @authenticated_user.id )
 
 	end
+
+
 
 	def update
 	end

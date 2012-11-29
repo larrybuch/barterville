@@ -34,6 +34,30 @@ class ItemsController < ApplicationController
 
   end
 
+  def accept
+    trade = Trade.find(params[:trade_id])
+
+    trade.update_attributes(:trade_status => true)
+
+    seller_item = Item.find(trade.seller_item_id)
+    buyer_item = Item.find(trade.buyer_item_id)
+    seller = User.find(trade.seller_id)
+    buyer = User.find(trade.buyer_id)
+
+    seller_item.update_attributes(:user_id => buyer.id)
+    buyer_item.update_attributes(:user_id => seller.id)
+
+    redirect_to root_path
+
+  end
+
+  def reject
+    trade = Trade.find(params[:trade_id])
+    trade.update_attributes(:trade_status => false)
+    
+    redirect_to users_path
+  end
+
   def destroy
     item = Item.find(params[:id])
     item.delete

@@ -33,6 +33,9 @@ class UsersController < ApplicationController
 	def show
 		user_id = params[:id]
 		@user = User.find(user_id)
+
+		@your_trades = Trade.where( :buyer_id => @authenticated_user.id )
+		@proposed_trades = Trade.where( :seller_id => @authenticated_user.id )
 	end
 
 	def update

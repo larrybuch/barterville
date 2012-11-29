@@ -1,0 +1,14 @@
+<h1><%= @authenticated_user.name.capitalize %>'s Pending trades</h1>
+
+<h3>Trades you have proposed</h3>
+
+<% @your_trades.each do |trade| %>
+  <p>You wanted to trade a <%= trade.buyer_item.name %> to <%= trade.seller.name %> for a <%= trade.seller_item.name %>.</p>
+<% end %>
+
+<h3>Trades Proposed to you</h3>
+
+<% @proposed_trades.each do |trade| %>
+  <p><%= trade.buyer.name %> wants trade their <%= trade.buyer_item.name %> for your <%= trade.seller_item.name %>.</p>
+  <%= link_to 'Accept', accept_path(:trade_id => trade.id) %> <%= link_to 'Reject', reject_path(:trade_id => trade.id) %>
+<% end %>
